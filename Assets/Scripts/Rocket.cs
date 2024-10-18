@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class Rocket : MonoBehaviour
 {
-    protected DataManger datamanger;
     private Rigidbody2D _rb2d;
     protected RocketEnergySystem rocketEnergySystem;
     protected GameObject fuelImage;
@@ -20,7 +19,6 @@ public class Rocket : MonoBehaviour
     {
         // TODO : Rigidbody2D 컴포넌트를 가져옴(캐싱) 
         _rb2d = GetComponent<Rigidbody2D>();
-        datamanger = FindAnyObjectByType<DataManger>();
         rocketEnergySystem = GetComponent<RocketEnergySystem>();
         fuelImage = GameObject.Find("Front");
     }

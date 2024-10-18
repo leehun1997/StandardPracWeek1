@@ -10,6 +10,7 @@ public class RocketDashBoard : MonoBehaviour
     private DataManger dataManger;
 
     float currentScore;
+    float highScore;
 
 
     private void Awake()
@@ -18,7 +19,8 @@ public class RocketDashBoard : MonoBehaviour
     }
     private void Start()
     {
-        HighScoreTxt.text = $"{dataManger.HighScore}";
+        highScore = dataManger.HighScore;
+        HighScoreTxt.text = $"{highScore}";
     }
 
     private void Update()
@@ -26,14 +28,14 @@ public class RocketDashBoard : MonoBehaviour
         currentScore = transform.position.y;
         currentScoreTxt.text = $"{currentScore}";
 
-        if (currentScore > dataManger.HighScore)
+        if (currentScore > highScore)
         {
             HighScoreTxt.text = currentScoreTxt.text;
         }
     }
     public void SaveHighScore()
     {
-        if (currentScore > dataManger.HighScore)
+        if (currentScore > highScore)
             dataManger.HighScore = currentScore;
     }
 }
